@@ -3,6 +3,7 @@ import json
 from requests.auth import HTTPBasicAuth
 from datetime import datetime
 import base64
+import os
 
 class MpesaC2bCredential:
     consumer_key = os.environ['MPESA_CONSUMER_KEY']
