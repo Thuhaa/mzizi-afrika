@@ -25,7 +25,7 @@ SECRET_KEY = os.environ['SECRET_KEY_MZIZI']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mziziafrika.herokuapp.com', 'localhost:8000', 'localhost']
+ALLOWED_HOSTS = ['mziziafrika.herokuapp.com', 'localhost']
 
 
 # Application definition
