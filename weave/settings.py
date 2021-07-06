@@ -90,7 +90,9 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'weave',
         'USER':'postgres',
-        'PASSWORD':'mezenga'
+        'PASSWORD':'mezenga',
+        'HOST':'localhost',
+        'PORT':'5432',
     }
 }
 """
