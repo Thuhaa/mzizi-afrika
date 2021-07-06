@@ -1,0 +1,94 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/nice-select.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/owl.carousel.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/magnific-popup.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/slicknav.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'shop/css/style.css' %}" type="text/css">
+
+  <title>MZIZI AFRIKA</title>
+</head>
+
+<body>
+  <header class="header-section">
+    <div class="container-fluid">
+      <div class="inner-header">
+        <div class="logo">
+          <a href="{% url 'catalogue' %}"><img src="{% static 'shop/img/logo.png' %}" alt=""></a>
+        </div>
+        <div class="header-right">
+          <img src="{% static 'shop/img/icons/search.png' %}" alt="" class="search-trigger">
+        </div>
+        <div class="user-access">
+          {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}" class="in">Log out</a>
+          {% else %}
+          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'login' %}" class="in">Log in</a>
+          {% endif %}
+        </div>
+        <nav class="main-menu mobile-menu">
+          <ul>
+            <li><a href="{% url 'catalogue' %}">Home</a></li>
+            <li><a href="{% url 'shop' %}">Shop</a></li>
+            <li><a href="{% url 'cart' %}">Cart</a></li>
+            <li><a href="{% url 'contact_us' %}">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <hr />
+  <br />
+  <div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissable" role="alert">
+      <button class="close" data-dismiss="alert">
+        <small><sup>x</sup></small>
+      </button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="{% static 'shop/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'shop/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'shop/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'shop/js/jquery.slicknav.js' %}"></script>
+  <script src="{% static 'shop/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'shop/js/jquery.nice-select.min.js' %}"></script>
+  <script>
+    var showpass = document.getElementById('checkbox');
+    var pass = document.getElementById('password');
+    var forgotpass = document.getElementById('forgotpass');
+    showpass.addEventListener('click', function () {
+      if (pass.type === "password") {
+        pass.type = "text";
+      }
+      else {
+        pass.type = "password";
+      }
+    })
+    forgotpass.addEventListener('click', function () {
+      console.log("Forgot Pass")
+    })
+  </script>
+  <script src="{% static 'shop/js/mixitup.min.js' %}"></script>
+  <script src="{% static 'shop/js/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'shop/js/cart.js' %}"></script>
+</body>
+
+</html>

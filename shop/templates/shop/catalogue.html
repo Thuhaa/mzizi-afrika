@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="MZIZI AFRIKA">
+    <meta name="keywords" content="Handbags, Jumia, Kilimall, MZIZI, AFRIKA, BAGS, Handbags, best bags, beautiful bags, e commerce, mpesa, html, girls bags">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MZIZI AFRIKA | Home</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'shop/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'shop/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+    <!-- Search model -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="logo">
+                    <a href="{% url 'catalogue' %}"><img src="{% static 'shop/img/logo.png' %}" alt=""></a>
+                </div>
+                <div class="header-right">
+                    {% if user.is_authenticated %}
+                    <p>Hello <b>{{ current_user.first_name }}</b></p>
+                    {% else %}
+                    {% endif %}
+                    <img src="{% static 'shop/img/icons/search.png' %}" alt="" class="search-trigger">
+                    <img src="{% static 'shop/img/icons/man.png' %}" alt="{{ current_user.first_name }}">
+                    <a href="{% url 'cart' %}">
+                        <img src="{% static 'shop/img/icons/bag.png' %}" alt="">
+                        <span style="background-color: transparent; border-color: transparent;">
+                            <h5><b>{{ number_of_items_in_cart }}</b></h5>
+                        </span>
+                    </a>
+                </div>
+                <div class="user-access">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" class="in">Log out</a>
+                    {% else %}
+                    <a href="{% url 'register' %}">Register</a>
+                    <a href="{% url 'login' %}" class="in">Log in</a>
+                    {% endif %}
+                </div>
+                <nav class="main-menu mobile-menu">
+                    <ul>
+                        <li><a class="active" href="{% url 'catalogue' %}">Home</a></li>
+                        <li><a href="{% url 'shop' %}">Shop</a></li>
+                        <li><a href="{% url 'cart' %}">Cart</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <hr />
+    <!-- Header End -->
+
+    <!-- Hero Slider Begin -->
+    <section class="hero-slider">
+        <div class="hero-items owl-carousel">
+            <div class="single-slider-item set-bg" data-setbg="{% static 'shop/img/slider-1.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>100%</h1>
+                            <h2>African</h2>
+                            <a href="{% url 'shop' %}" class="primary-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slider-item set-bg" data-setbg="{% static 'shop/img/slider-2.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>400+</h1>
+                            <h2>Designs</h2>
+                            <a href="{% url 'shop' %}" class="primary-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slider-item set-bg" data-setbg="{% static 'shop/img/slider-3.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>Perfect</h1>
+                            <h2>Gift.</h2>
+                            <a href="{% url 'shop' %}" class="primary-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Slider End -->
+
+    <!-- Features Section Begin -->
+    <section class="features-section spad">
+        <div class="features-ads">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single-features-ads first">
+                            <img src="{% static 'shop/img/icons/f-delivery.png' %}" alt="">
+                            <h4>Free Delivery for orders above kes 4500</h4>
+                            <p>Get your self a free delivery for orders above 4500 and get your shopping points up </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads second">
+                            <img src="{% static 'shop/img/icons/coin.png' %}" alt="">
+                            <h4>Pay on delivery</h4>
+                            <p>
+                                Dont stress on prepay ,you can always pay for your goods on delivery </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'shop/img/icons/chat.png' %}" alt="">
+                            <h4>Online support 24/7</h4>
+                            <p>We are with you 24/7 whenever you want to order ,delivery services are 24hrs on order
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'shop/img/icons/white.png' %}" alt="">
+                            <!--<h4>Pay from your phone with Mpesa</h4>
+                            <p>You dont have to have cash in hand to get our products
+                            </p>-->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'shop/img/icons/mpesa.png' %}" alt="">
+                            <h4>Pay from your phone with Mpesa</h4>
+                            <p>You dont have to have cash in hand to get our products
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'shop/img/icons/white.png' %}" alt="">
+                            <!--<h4>Pay from your phone with Mpesa</h4>
+                            <p>You dont have to have cash in hand to get our products
+                            </p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Features Box -->
+
+    </section>
+    <!-- Features Section End -->
+
+    <!-- Latest Product Begin -->
+    <section class="latest-products spad">
+        <div class="container">
+            <div class="product-filter">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-title">
+                            <h2>Latest Products</h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="product-list">
+                {% for bag in bags_list %}
+                <div class="col-lg-3 col-sm-6 mix all accesories bags">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="product/{{ bag.brand }}"><img src="{{ bag.picture.url }}" alt=""></a>
+                            <div class="p-status">{{ bag.display_category }}</div>
+                        </figure>
+                        <div class="product-text">
+                            <del>
+                                <p>KES {{ bag.discount_price }}</p>
+                            </del>
+                            <p>KES {{ bag.price }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="more-product">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <a href="/shop/" class="primary-btn">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="modalAboutUs" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>About Us</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <p>Welcome to Mzizi Afrika, your number one source for all things shopping bags. We're dedicated to
+                        giving you the very best of shopping bags, with a focus on quality, convenience, price,
+                        community service and environmental conservation.</p>
+
+                    <p>Founded in 2019 by Joan Muthoni, Mzizi Afrika has come a long way from its beginnings. When Joan
+                        first started out, her passion for economically and environmentally viable bags drove them here
+                        so that Mzizi Afrika can offer you the most environmentally friendly yet the cheapest
+                        alternative to plastic bags. We now serve customers all over Kenya, and are thrilled that we're
+                        able to turn our passion into our own website.</p>
+
+
+                    <p>We hope you enjoy our products as much as we enjoy offering them to you. If you have any
+                        questions or comments, please don't hesitate to contact us.</p>
+
+
+                    <p>Sincerely,</p>
+
+                    <p>Joan Muthoni</p>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>About Us</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCustomerCare" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Customer Care</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>It is the Mzizi Afrika's policy and responsibility to provide excellent service to the
+                        public.Customer feedback helps us measure whether our services are meeting public needs and
+                        expectations.</p>
+                    <p>It also helps us identify problems that need to be solved. High quality customer
+                        service depends on customer feedback. While praise is always welcome, constructive criticism is
+                        truly helpful in the long run.</p>
+                    <p>The purpose of this policy is to establish uniform standards and procedures for responding to
+                        customer feedback, thus making sure those responses are timely and that issues do not “fall
+                        through the cracks.” The policy strives to treat every interaction with the public as an
+                        opportunity
+                        to produce a satisfied customer, or at least one who feels that he or she was listened to and
+                        taken seriously, even if it was not possible to meet his or her request.</p>
+                    <p>Customer feedback comes to the Mzizi Afrika in many ways. This policy outlines a
+                        procedure for responding to complaints, requests for service and questions that come to the
+                        Mzizi Afrika through a customer visit, call or email.</p>
+
+                    <p>When possible, complaints, questions and requests for service are resolved in “real time”
+                        on the same day they arrive. However, in many instances, referral and follow-up are necessary
+                        in order to fully understand and resolve the issue. In such instances, the following standards
+                        for
+                        acknowledgement and resolution should be followed.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalOurServices" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Our Services</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>From our weavers to you.
+                        Our services range from providing jobs to the weavers to providing you with the best quality of
+                        woven bags you can get</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalTermsAndConditions" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <b>
+                        <h5>Website Terms and Conditions of Use<h5>
+                    </b>
+                    <p><b>1. Terms</b>
+                        By accessing this Website, accessible from Mzizi Afrika, you are agreeing to be bound by these
+                        Website Terms and Conditions of Use and agree that you are responsible for the agreement with
+                        any applicable local laws. If you disagree with any of these terms, you are prohibited from
+                        accessing this site. The materials contained in this Website are protected by copyright and
+                        trade mark law.</p>
+
+                    <p><b>2. Use License</b>
+                        Permission is granted to temporarily download one copy of the materials on Mzizi Afrika's
+                        Website for personal, non-commercial transitory viewing only. This is the grant of a license,
+                        not a transfer of title, and under this license you may not:</p>
+
+                    <p>modify or copy the materials</p>
+                    <p>use the materials for any commercial purpose or for any public display</p>
+                    <p>attempt to reverse engineer any software contained on Mzizi Afrika's Website</p>
+                    <p>remove any copyright or other proprietary notations from the materials; or</p>
+                    <p>transferring the materials to another person or "mirror" the materials on any other server.</p>
+                    <p>This will let Mzizi Afrika to terminate upon violations of any of these restrictions. Upon
+                        termination, your viewing right will also be terminated and you should destroy any downloaded
+                        materials in your possession whether it is printed or electronic format</p>
+                    <p><b>3. Disclaimer</b>
+                        All the materials on Mzizi Afrika’s Website are provided "as is". Mzizi Afrika makes no
+                        warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore,
+                        Mzizi Afrika does not make any representations concerning the accuracy or reliability of the use
+                        of the materials on its Website or otherwise relating to such materials or any sites linked to
+                        this Website.</p>
+
+                    <p><b>4. Limitations</b>
+                        Mzizi Afrika or its suppliers will not be held accountable for any damages that will arise with
+                        the use or inability to use the materials on Mzizi Afrika’s Website, even if Mzizi Afrika or an
+                        authorize representative of this Website has been notified, orally or written, of the
+                        possibility of such damage. Some jurisdiction does not allow limitations on implied warranties
+                        or limitations of liability for incidental damages, these limitations may not apply to you.</p>
+
+                    <p><b>5. Revisions and Errata</b>
+                        The materials appearing on Mzizi Afrika’s Website may include technical, typographical, or
+                        photographic errors. Mzizi Afrika will not promise that any of the materials in this Website are
+                        accurate, complete, or current. Mzizi Afrika may change the materials contained on its Website
+                        at any time without notice.</p>
+
+                    <p><b>6. Links</b>
+                        Mzizi Afrika has not reviewed all of the sites linked to its Website and is not responsible for
+                        the contents of any such linked site. The presence of any link does not imply endorsement by
+                        Mzizi Afrika of the site. The use of any linked website is at the user’s own risk.</p>
+
+                    <p><b>7. Site Terms of Use Modifications</b>
+                        Mzizi Afrika may revise these Terms of Use for its Website at any time without prior notice. By
+                        using this Website, you are agreeing to be bound by the current version of these Terms and
+                        Conditions of Use.</p>
+
+                    <p><b>8. Your Privacy</b>
+                        Mzizi Afrika does not share any users personal data</p>
+
+                    <p><b>9. Governing Law</b>
+                        Any claim related to Mzizi Afrika's Website shall be governed by the laws of Kenya without
+                        regards to its conflict of law provisions.</p>
+                    <p><b>10. Return Policy</b> Mzizi Afrika reserves the right to decide the basis on what returns are
+                        made, and consequently allow or deny that return. Returns have to be communicated before hand
+                        and made within 24 hours of purchase. Any return attempts made after 24 hours from the time of
+                        delivery of your order will not be accepted and a refund or exchange will not be made.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Latest Product End -->
+
+    <!-- Lookbok Section Begin -->
+
+
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section spad">
+        <div class="container">
+            <div class="newslatter-form">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="#">
+                            <input type="text" placeholder="Your email address">
+                            <button type="submit">Subscribe to our newsletter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4><a href="#" data-toggle="modal" data-target="#modalAboutUs">About us</a></h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4><a href="#" data-toggle="modal" data-target="#modalCustomerCare">Customer Care</a></h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4><a href="#" data-toggle="modal" data-target="#modalOurServices">Our Services</a></h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h4><a href="#" data-toggle="modal" data-target="#modalTermsAndConditions">Terms and
+                                    Conditions</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="social-links-warp">
+            <div class="container">
+                <div class="social-links">
+                    <a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+                    <a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+                    <a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+                    <a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+                    <a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+                    <a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+                </div>
+            </div>
+
+
+            <div class="container text-center pt-5">
+                <p>Copyright &copy; {% now "Y" %} <a href="{% url 'catalogue' %}" target="_blank">MZIZI
+                        AFRIKA</a></p>
+            </div>
+
+
+
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'shop/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'shop/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'shop/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'shop/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'shop/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'shop/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'shop/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'shop/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'shop/js/cart.js' %}"></script>
+</body>
+
+</html>
