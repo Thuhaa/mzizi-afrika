@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'accounts.apps.AccountsConfig',
     'mpesa_api.apps.MpesaApiConfig',
-    'django.contrib.postgres',
+    #'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
